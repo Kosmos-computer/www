@@ -92,15 +92,6 @@
   line-height: 1.6;
 }
 
-.networkLines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
 @media (max-width: 768px) {
   .section {
     height: 220vh;

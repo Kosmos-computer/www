@@ -101,11 +101,6 @@ export function PlatformSphere() {
           ))}
         </div>
       </div>
-
-      <svg className={styles.networkLines} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
-        <path d="M0,50 Q25,30 50,50 T100,50" stroke="rgba(0,0,0,0.06)" strokeWidth="0.2" fill="none" />
-        <path d="M20,0 L80,100" stroke="rgba(0,0,0,0.04)" strokeWidth="0.2" fill="none" />
-      </svg>
     </section>
   );
 }

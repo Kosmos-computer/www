@@ -6,7 +6,7 @@ export const siteMeta = {
 } as const;
 
 export const demoUrl = "http://localhost:4610";
-export const arcoDocsUrl = "http://localhost:5175";
+export const arcoDocsUrl = "https://kosmos-docs.vercel.app";
 
 export const navPillLinks = [
   { label: "Platform", href: "#platform" },
