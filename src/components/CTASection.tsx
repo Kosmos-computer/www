@@ -1,4 +1,4 @@
-import { arcoDocsUrl, demoUrl, siteMeta } from "../content/site-content";
+import { arcoDocsUrl, demoUrl, signInUrl, signUpUrl, siteMeta } from "../content/site-content";
 import { ChunkyButton } from "./ChunkyButton";
 import { JourneyConstellation } from "./JourneyConstellation";
 import styles from "./CTASection.module.css";
@@ -18,7 +18,8 @@ type CTASectionProps = {
 };
 
 const defaultActions: readonly CTAAction[] = [
-  { label: "Launch Kosmos demo", href: demoUrl, variant: "primary" },
+  { label: "Get your instance", href: signUpUrl, variant: "primary", external: true },
+  { label: "Sign in", href: signInUrl, variant: "secondary", external: true },
   { label: "Read Arco docs", href: arcoDocsUrl, variant: "secondary" },
 ];
 
@@ -84,9 +85,11 @@ export function SiteFooter() {
           Generative AI OS · Arco-Prototype-2 monorepo
         </p>
         <nav className={styles.footerNav} aria-label="Footer">
+          <a href={signUpUrl}>Get started</a>
+          <a href={signInUrl}>Sign in</a>
           <a href={arcoDocsUrl}>Arco docs</a>
           <a href="/spec.html">Arco spec</a>
-          <a href={demoUrl}>Try demo</a>
+          <a href={demoUrl}>Local demo</a>
         </nav>
       </div>
     </footer>

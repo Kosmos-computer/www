@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArcoLogo } from "@brand/ArcoLogo";
-import { arcoDocsUrl, demoUrl, navPillLinks, siteMeta } from "../content/site-content";
+import { arcoDocsUrl, navPillLinks, signInUrl, signUpUrl, siteMeta } from "../content/site-content";
 import clay from "../styles/clay.module.css";
 import { ChunkyButton } from "./ChunkyButton";
 import styles from "./SiteHeader.module.css";
@@ -33,9 +33,12 @@ export function SiteHeader({ links = navPillLinks, homeHref = "#" }: SiteHeaderP
               <a className={styles.navLink} href={arcoDocsUrl}>
                 Docs
               </a>
+              <a className={styles.navLink} href={signInUrl}>
+                Sign in
+              </a>
             </div>
-            <ChunkyButton href={demoUrl} className={styles.navCta}>
-              Try demo
+            <ChunkyButton href={signUpUrl} className={styles.navCta}>
+              Get started
             </ChunkyButton>
           </div>
         </nav>
@@ -66,8 +69,11 @@ export function SiteHeader({ links = navPillLinks, homeHref = "#" }: SiteHeaderP
           <a className={styles.mobileLink} href={arcoDocsUrl} onClick={() => setMenuOpen(false)}>
             Docs
           </a>
-          <ChunkyButton href={demoUrl} size="large" className={styles.mobileCta}>
-            Try demo
+          <a className={styles.mobileLink} href={signInUrl} onClick={() => setMenuOpen(false)}>
+            Sign in
+          </a>
+          <ChunkyButton href={signUpUrl} size="large" className={styles.mobileCta}>
+            Get started
           </ChunkyButton>
         </nav>
       ) : null}

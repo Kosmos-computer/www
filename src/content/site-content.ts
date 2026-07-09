@@ -5,7 +5,13 @@ export const siteMeta = {
     "One shell for chat, code, files, and generated apps. Plug in OpenClaw, OpenHands, and Arco — agents share focus context across every workspace.",
 } as const;
 
-export const demoUrl = "http://localhost:4610";
+export const controlPlaneUrl =
+  import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://arco-control-plane.fly.dev";
+
+export const signUpUrl = controlPlaneUrl;
+export const signInUrl = `${controlPlaneUrl}/signin`;
+
+export const demoUrl = import.meta.env.VITE_DEMO_URL ?? "http://localhost:4610";
 export const arcoDocsUrl = "https://kosmos-docs.vercel.app";
 
 export const navPillLinks = [

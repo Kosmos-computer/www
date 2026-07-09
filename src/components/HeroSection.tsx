@@ -1,4 +1,4 @@
-import { demoUrl, siteMeta } from "../content/site-content";
+import { signInUrl, signUpUrl, siteMeta } from "../content/site-content";
 import clay from "../styles/clay.module.css";
 import shared from "../styles/shared.module.css";
 import { ChunkyButton } from "./ChunkyButton";
@@ -14,9 +14,9 @@ export function HeroSection() {
           <h1 className={styles.title}>{siteMeta.tagline}</h1>
           <p className={styles.description}>{siteMeta.description}</p>
           <div className={styles.actions}>
-            <ChunkyButton href={demoUrl}>Try the demo →</ChunkyButton>
-            <ChunkyButton href="#architecture" variant="secondary">
-              Read the architecture
+            <ChunkyButton href={signUpUrl}>Get started →</ChunkyButton>
+            <ChunkyButton href={signInUrl} variant="secondary">
+              Sign in
             </ChunkyButton>
           </div>
         </div>
