@@ -4,12 +4,14 @@ import shared from "../styles/shared.module.css";
 import styles from "./FeatureSection.module.css";
 
 export function FeatureSection() {
+  const lastRowStart = features.length - (features.length % 2 === 0 ? 2 : 1);
+
   return (
-    <section className={styles.section}>
+    <section id="features" className={styles.section}>
       <div className={shared.card}>
         <div className={styles.header}>
           <h2 className={styles.title}>
-            The integrated shell for AI-native work.{" "}
+            The integrated shell for AI-native work &amp; life.{" "}
             <span className={shared.sectionTitleMuted}>
               You keep context. Agents keep building across workspaces.
             </span>
@@ -21,7 +23,7 @@ export function FeatureSection() {
             <article
               key={feature.title}
               className={styles.cell}
-              data-last-row={index >= features.length - 2 ? "true" : "false"}
+              data-last-row={index >= lastRowStart ? "true" : "false"}
             >
               <div className={styles.copy}>
                 <h3 className={styles.cellTitle}>{feature.title}</h3>
@@ -32,10 +34,17 @@ export function FeatureSection() {
                 </a>
               </div>
               <div className={styles.media}>
-                <ImagePlaceholder />
+                <ImagePlaceholder label={feature.title} />
               </div>
             </article>
           ))}
+        </div>
+
+        <div className={styles.footer}>
+          <a className={shared.linkArrow} href="/features.html">
+            Browse all features
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

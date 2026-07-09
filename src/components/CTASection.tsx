@@ -1,5 +1,5 @@
 import { ArcoLogo } from "@brand/ArcoLogo";
-import { arcoDocsUrl, demoUrl, siteMeta } from "../content/site-content";
+import { arcoDocsUrl, siteMeta } from "../content/site-content";
 import { ChunkyButton } from "./ChunkyButton";
 import { JourneyConstellation } from "./JourneyConstellation";
 import { useWaitlist } from "./WaitlistContext";
@@ -113,15 +113,16 @@ export function SiteFooter() {
           <ArcoLogo className={styles.footerLogo} title="Kosmos" />
         </a>
         <nav className={styles.footerNav} aria-label="Footer">
+          <a href="/apps.html">Apps</a>
+          <a href="/platforms.html">Platforms</a>
+          <a href="/features.html">Features</a>
+          <a href="/education.html">Education</a>
+          <a href="/download.html">Download</a>
           <button type="button" className={styles.footerLinkButton} onClick={openWaitlist}>
             Get started
           </button>
-          <button type="button" className={styles.footerLinkButton} onClick={openWaitlist}>
-            Sign in
-          </button>
           <a href={arcoDocsUrl}>Arco docs</a>
           <a href="/spec.html">Arco spec</a>
-          <a href={demoUrl}>Local demo</a>
         </nav>
       </div>
     </footer>

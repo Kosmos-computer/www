@@ -1,9 +1,12 @@
 .frame {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   border-radius: var(--lf-radius-lg);
   box-shadow: var(--lf-shadow-lg);
-  padding: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.75rem, 5vw, 3.5rem);
   min-height: 22rem;
   --arco-bg-desktop: #0b0d12;
 }
@@ -14,18 +17,104 @@
   z-index: 0;
 }
 
-.shotWrap {
+.carousel {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: min(100%, 52rem);
+}
+
+.shotWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: calc(var(--lf-radius-lg) - 0.25rem);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .shot {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
-  vertical-align: middle;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  pointer-events: none;
+}
+
+.shot[data-active="true"] {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(15, 18, 24, 0.55);
+  color: rgba(245, 245, 245, 0.9);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.navBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+}
+
+.dot[data-active="true"] {
+  width: 1.1rem;
+  background: rgba(245, 245, 245, 0.95);
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot {
+    transition: none;
+    transform: none;
+  }
 }

@@ -18,6 +18,11 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL("./index.html", import.meta.url)),
         spec: fileURLToPath(new URL("./spec.html", import.meta.url)),
+        platforms: fileURLToPath(new URL("./platforms.html", import.meta.url)),
+        features: fileURLToPath(new URL("./features.html", import.meta.url)),
+        education: fileURLToPath(new URL("./education.html", import.meta.url)),
+        apps: fileURLToPath(new URL("./apps.html", import.meta.url)),
+        download: fileURLToPath(new URL("./download.html", import.meta.url)),
       },
     },
   },
