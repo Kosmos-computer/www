@@ -16,6 +16,9 @@ export const signInUrl = `${controlPlaneUrl}/signin`;
 export const demoUrl = import.meta.env.VITE_DEMO_URL ?? "http://localhost:4610";
 export const arcoDocsUrl = "https://kosmos-docs.vercel.app";
 
+/** Opens the beta / waitlist modal when visited (e.g. from kosmos-docs footer links). */
+export const betaModalUrl = "https://kosmos-www.vercel.app/#beta";
+
 /** Formspree endpoint for the waitlist contact form. Set VITE_FORMSPREE_ID in env. */
 export const waitlistFormUrl = import.meta.env.VITE_FORMSPREE_ID
   ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
