@@ -2,11 +2,13 @@
   position: relative;
   z-index: 1;
   padding-top: 7rem;
+  padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
   .hero {
     padding-top: 8.5rem;
+    padding-bottom: 6rem;
   }
 }
 
@@ -46,14 +48,11 @@
 }
 
 .previewWrap {
-  max-width: var(--lf-max-width);
-  margin: 3rem auto 0;
-  padding: 0 1.25rem;
+  margin-top: 3rem;
 }
 
 @media (min-width: 768px) {
   .previewWrap {
     margin-top: 4rem;
-    padding: 0 2.5rem;
   }
 }

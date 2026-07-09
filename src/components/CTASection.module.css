@@ -73,18 +73,16 @@
 }
 
 .footerBrand {
-  margin: 0;
-  font-family: var(--lf-font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lf-text);
 }
 
-.footerCopy {
-  margin: 0.5rem 0 0;
-  font-size: 0.875rem;
-  color: var(--lf-text-muted);
+.footerLogo {
+  display: block;
+  height: 1.25rem;
+  width: auto;
 }
 
 .footerNav {
@@ -98,6 +96,22 @@
 }
 
 .footerNav a:hover {
+  opacity: 0.7;
+}
+
+.footerLinkButton {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.footerLinkButton:hover {
   opacity: 0.7;
 }
 

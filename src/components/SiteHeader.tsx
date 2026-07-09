@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { ArcoLogo } from "@brand/ArcoLogo";
-import { arcoDocsUrl, navPillLinks, signInUrl, signUpUrl, siteMeta } from "../content/site-content";
+import { arcoDocsUrl, navPillLinks, siteMeta } from "../content/site-content";
 import clay from "../styles/clay.module.css";
 import { ChunkyButton } from "./ChunkyButton";
+import { useWaitlist } from "./WaitlistContext";
 import styles from "./SiteHeader.module.css";
 
 type HeaderLink = { label: string; href: string };
@@ -14,6 +15,7 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ links = navPillLinks, homeHref = "#" }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   return (
     <header className={styles.header}>
@@ -33,11 +35,11 @@ export function SiteHeader({ links = navPillLinks, homeHref = "#" }: SiteHeaderP
               <a className={styles.navLink} href={arcoDocsUrl}>
                 Docs
               </a>
-              <a className={styles.navLink} href={signInUrl}>
+              <button type="button" className={styles.navLinkButton} onClick={openWaitlist}>
                 Sign in
-              </a>
+              </button>
             </div>
-            <ChunkyButton href={signUpUrl} className={styles.navCta}>
+            <ChunkyButton onClick={openWaitlist} className={styles.navCta}>
               Get started
             </ChunkyButton>
           </div>
@@ -69,10 +71,24 @@ export function SiteHeader({ links = navPillLinks, homeHref = "#" }: SiteHeaderP
           <a className={styles.mobileLink} href={arcoDocsUrl} onClick={() => setMenuOpen(false)}>
             Docs
           </a>
-          <a className={styles.mobileLink} href={signInUrl} onClick={() => setMenuOpen(false)}>
+          <button
+            type="button"
+            className={styles.mobileLinkButton}
+            onClick={() => {
+              setMenuOpen(false);
+              openWaitlist();
+            }}
+          >
             Sign in
-          </a>
-          <ChunkyButton href={signUpUrl} size="large" className={styles.mobileCta}>
+          </button>
+          <ChunkyButton
+            size="large"
+            className={styles.mobileCta}
+            onClick={() => {
+              setMenuOpen(false);
+              openWaitlist();
+            }}
+          >
             Get started
           </ChunkyButton>
         </nav>

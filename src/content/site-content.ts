@@ -1,6 +1,6 @@
 export const siteMeta = {
   name: "Kosmos",
-  tagline: "A generative AI operating system for integrated work",
+  tagline: "A generative AI operating system for integrated work & life.",
   description:
     "One shell for chat, code, files, and generated apps. Plug in OpenClaw, OpenHands, and Arco — agents share focus context across every workspace.",
 } as const;
@@ -8,11 +8,18 @@ export const siteMeta = {
 export const controlPlaneUrl =
   import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://arco-control-plane.fly.dev";
 
+/** @deprecated Prefer opening the waitlist modal via useWaitlist() */
 export const signUpUrl = controlPlaneUrl;
+/** @deprecated Prefer opening the waitlist modal via useWaitlist() */
 export const signInUrl = `${controlPlaneUrl}/signin`;
 
 export const demoUrl = import.meta.env.VITE_DEMO_URL ?? "http://localhost:4610";
 export const arcoDocsUrl = "https://kosmos-docs.vercel.app";
+
+/** Formspree endpoint for the waitlist contact form. Set VITE_FORMSPREE_ID in env. */
+export const waitlistFormUrl = import.meta.env.VITE_FORMSPREE_ID
+  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
+  : "";
 
 export const navPillLinks = [
   { label: "Platform", href: "#platform" },
@@ -100,7 +107,7 @@ export const faqItems = [
   {
     question: "Is Kosmos a product or a prototype?",
     answer:
-      "Arco-Prototype-2 is the working prototype. The production path is a Kosmos client served from the OpenClaw plugin with real gateway-backed stores.",
+      "Kosmos is the working product surface today. The production path is a Kosmos client served from the OpenClaw plugin with real gateway-backed stores.",
   },
   {
     question: "Do I need every backend running?",

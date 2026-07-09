@@ -84,8 +84,14 @@
   margin-top: 1.25rem;
 }
 
+.media {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 10rem;
+}
+
 @media (max-width: 639px) {
-  .cell svg {
+  .media {
     display: none;
   }
 }

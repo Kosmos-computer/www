@@ -37,7 +37,7 @@ export function ArchitectureSection() {
             runtime; Kosmos owns presentation and focus.
           </p>
           <p className={styles.calloutMeta}>
-            See <code>docs/open-standards-map.md</code> in the Arco-Prototype-2 repo.
+            See <code>docs/open-standards-map.md</code> in the Kosmos repo.
           </p>
         </div>
       </div>

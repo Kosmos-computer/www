@@ -1,4 +1,4 @@
-import { IsometricTile } from "./IsometricTile";
+import { ImagePlaceholder } from "./ImagePlaceholder";
 import { features } from "../content/site-content";
 import shared from "../styles/shared.module.css";
 import styles from "./FeatureSection.module.css";
@@ -31,7 +31,9 @@ export function FeatureSection() {
                   <span aria-hidden="true">→</span>
                 </a>
               </div>
-              <IsometricTile variant={index} />
+              <div className={styles.media}>
+                <ImagePlaceholder />
+              </div>
             </article>
           ))}
         </div>

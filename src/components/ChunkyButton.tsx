@@ -1,14 +1,30 @@
-import type { ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import clay from "../styles/clay.module.css";
 
-type ChunkyButtonProps = {
-  href: string;
+type SharedProps = {
   children: ReactNode;
   variant?: "primary" | "secondary";
   size?: "default" | "large";
   className?: string;
-  external?: boolean;
 };
+
+type LinkProps = SharedProps & {
+  href: string;
+  onClick?: () => void;
+  external?: boolean;
+  type?: never;
+  disabled?: never;
+};
+
+type ButtonProps = SharedProps & {
+  href?: undefined;
+  onClick?: () => void;
+  external?: never;
+  type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
+  disabled?: boolean;
+};
+
+type ChunkyButtonProps = LinkProps | ButtonProps;
 
 export function ChunkyButton({
   href,
@@ -17,6 +33,9 @@ export function ChunkyButton({
   size = "default",
   className = "",
   external,
+  onClick,
+  type = "button",
+  disabled,
 }: ChunkyButtonProps) {
   const classes = [
     clay.chunkyBtn,
@@ -27,13 +46,22 @@ export function ChunkyButton({
     .filter(Boolean)
     .join(" ");
 
+  if (href) {
+    return (
+      <a
+        className={classes}
+        href={href}
+        onClick={onClick}
+        {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <a
-      className={classes}
-      href={href}
-      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-    >
+    <button className={classes} type={type} onClick={onClick} disabled={disabled}>
       {children}
-    </a>
+    </button>
   );
 }

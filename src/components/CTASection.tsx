@@ -1,14 +1,25 @@
-import { arcoDocsUrl, demoUrl, signInUrl, signUpUrl, siteMeta } from "../content/site-content";
+import { ArcoLogo } from "@brand/ArcoLogo";
+import { arcoDocsUrl, demoUrl, siteMeta } from "../content/site-content";
 import { ChunkyButton } from "./ChunkyButton";
 import { JourneyConstellation } from "./JourneyConstellation";
+import { useWaitlist } from "./WaitlistContext";
 import styles from "./CTASection.module.css";
 
-type CTAAction = {
-  label: string;
-  href: string;
-  variant?: "primary" | "secondary";
-  external?: boolean;
-};
+type CTAAction =
+  | {
+      label: string;
+      href: string;
+      action?: undefined;
+      variant?: "primary" | "secondary";
+      external?: boolean;
+    }
+  | {
+      label: string;
+      href?: undefined;
+      action: "waitlist";
+      variant?: "primary" | "secondary";
+      external?: never;
+    };
 
 type CTASectionProps = {
   title?: string;
@@ -18,14 +29,49 @@ type CTASectionProps = {
 };
 
 const defaultActions: readonly CTAAction[] = [
-  { label: "Get your instance", href: signUpUrl, variant: "primary", external: true },
-  { label: "Sign in", href: signInUrl, variant: "secondary", external: true },
+  { label: "Get started", action: "waitlist", variant: "primary" },
   { label: "Read Arco docs", href: arcoDocsUrl, variant: "secondary" },
 ];
 
+function CTAActions({ actions }: { actions: readonly CTAAction[] }) {
+  const { openWaitlist } = useWaitlist();
+
+  return (
+    <>
+      {actions.map((action) => {
+        const key = action.href ?? action.label;
+        if (action.action === "waitlist") {
+          return (
+            <ChunkyButton
+              key={key}
+              onClick={openWaitlist}
+              variant={action.variant === "secondary" ? "secondary" : "primary"}
+              size={action.variant === "primary" ? "large" : "default"}
+            >
+              {action.label}
+            </ChunkyButton>
+          );
+        }
+
+        return (
+          <ChunkyButton
+            key={key}
+            href={action.href}
+            variant={action.variant === "secondary" ? "secondary" : "primary"}
+            size={action.variant === "primary" ? "large" : "default"}
+            external={action.external}
+          >
+            {action.label}
+          </ChunkyButton>
+        );
+      })}
+    </>
+  );
+}
+
 export function CTASection({
   title = "Start your journey",
-  body = "We would like to start a project with you — spin up the Kosmos prototype and explore the integrated AI workspace.",
+  body = "Hosted Kosmos is coming soon — a getting-started plan with $5 of inference credits, plus monthly plans for your private instance.",
   actions = defaultActions,
   journey = true,
 }: CTASectionProps) {
@@ -37,17 +83,7 @@ export function CTASection({
           <h2 className={styles.journeyTitle}>{title}</h2>
           <p className={styles.journeyBody}>{body}</p>
           <div className={styles.journeyActions}>
-            {actions.map((action) => (
-              <ChunkyButton
-                key={action.href}
-                href={action.href}
-                variant={action.variant === "secondary" ? "secondary" : "primary"}
-                size={action.variant === "primary" ? "large" : "default"}
-                external={action.external}
-              >
-                {action.label}
-              </ChunkyButton>
-            ))}
+            <CTAActions actions={actions} />
           </div>
         </div>
       </section>
@@ -60,16 +96,7 @@ export function CTASection({
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.body}>{body}</p>
         <div className={styles.actions}>
-          {actions.map((action) => (
-            <ChunkyButton
-              key={action.href}
-              href={action.href}
-              variant={action.variant === "secondary" ? "secondary" : "primary"}
-              external={action.external}
-            >
-              {action.label}
-            </ChunkyButton>
-          ))}
+          <CTAActions actions={actions} />
         </div>
       </div>
     </section>
@@ -77,16 +104,21 @@ export function CTASection({
 }
 
 export function SiteFooter() {
+  const { openWaitlist } = useWaitlist();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
-        <p className={styles.footerBrand}>{siteMeta.name}</p>
-        <p className={styles.footerCopy}>
-          Generative AI OS · Arco-Prototype-2 monorepo
-        </p>
+        <a className={styles.footerBrand} href="/" aria-label={`${siteMeta.name} home`}>
+          <ArcoLogo className={styles.footerLogo} title="Kosmos" />
+        </a>
         <nav className={styles.footerNav} aria-label="Footer">
-          <a href={signUpUrl}>Get started</a>
-          <a href={signInUrl}>Sign in</a>
+          <button type="button" className={styles.footerLinkButton} onClick={openWaitlist}>
+            Get started
+          </button>
+          <button type="button" className={styles.footerLinkButton} onClick={openWaitlist}>
+            Sign in
+          </button>
           <a href={arcoDocsUrl}>Arco docs</a>
           <a href="/spec.html">Arco spec</a>
           <a href={demoUrl}>Local demo</a>
