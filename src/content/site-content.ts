@@ -6,7 +6,7 @@ export const siteMeta = {
 } as const;
 
 export const controlPlaneUrl =
-  import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://arco-control-plane.fly.dev";
+  import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://kosmos-control-plane.fly.dev";
 
 /** @deprecated Prefer opening the waitlist modal via useWaitlist() */
 export const signUpUrl = controlPlaneUrl;
