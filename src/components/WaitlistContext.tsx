@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { trackEvent } from "../analytics/gtag";
 
 /** Hash fragments that open the beta / waitlist modal on kosmos-www. */
 const WAITLIST_MODAL_HASHES = new Set(["beta", "waitlist"]);
@@ -27,7 +28,10 @@ function hashOpensWaitlist(): boolean {
 export function WaitlistProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
 
-  const openWaitlist = useCallback(() => setOpen(true), []);
+  const openWaitlist = useCallback(() => {
+    setOpen(true);
+    trackEvent("waitlist_open", { source: "cta" });
+  }, []);
   const closeWaitlist = useCallback(() => {
     setOpen(false);
     if (hashOpensWaitlist()) {
@@ -37,7 +41,10 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const syncFromHash = () => {
-      if (hashOpensWaitlist()) setOpen(true);
+      if (hashOpensWaitlist()) {
+        setOpen(true);
+        trackEvent("waitlist_open", { source: "hash" });
+      }
     };
 
     syncFromHash();
