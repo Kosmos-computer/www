@@ -1,7 +1,8 @@
+import { PlatformLogoPanel } from "@brand/PlatformLogo";
+import { logosForPlatformId } from "@brand/platformLogos";
 import { platformTiles } from "../content/site-content";
 import shared from "../styles/shared.module.css";
 import { ChunkyButton } from "./ChunkyButton";
-import { ImagePlaceholder } from "./ImagePlaceholder";
 import styles from "./RunsEverywhereSection.module.css";
 
 export function RunsEverywhereSection() {
@@ -21,7 +22,7 @@ export function RunsEverywhereSection() {
         <div className={styles.grid}>
           {platformTiles.map((tile) => (
             <a key={tile.id} className={styles.tile} href={tile.href}>
-              <ImagePlaceholder label={tile.title} fill />
+              <PlatformLogoPanel ids={logosForPlatformId(tile.id)} />
               <div className={styles.tileCopy}>
                 <div className={styles.tileTop}>
                   <h3 className={styles.tileTitle}>{tile.title}</h3>

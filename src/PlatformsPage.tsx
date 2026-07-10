@@ -1,7 +1,9 @@
+import { PlatformLogoGroup, PlatformLogoPanel } from "@brand/PlatformLogo";
+import logoStyles from "@brand/PlatformLogo.module.css";
+import { heroPlatformLogos, logosForPlatformId, logosForPlatformName } from "@brand/platformLogos";
 import { PageShell } from "./components/PageShell";
 import styles from "./pages/ContentPages.module.css";
 import shared from "./styles/shared.module.css";
-import { ImagePlaceholder } from "./components/ImagePlaceholder";
 import { ChunkyButton } from "./components/ChunkyButton";
 import { platformMatrix, platformTiles } from "./content/site-content";
 
@@ -18,6 +20,9 @@ export default function PlatformsPage() {
           One OS across Windows, macOS, Linux, Android APK, Chromebook, Steam Deck, and the
           browser — sideload, PWA, or native desktop when we launch.
         </p>
+        <div className={logoStyles.strip}>
+          <PlatformLogoGroup ids={heroPlatformLogos} size="medium" />
+        </div>
         <div className={styles.heroActions}>
           <ChunkyButton href="/download.html">Download options</ChunkyButton>
           <ChunkyButton href="/features.html" variant="secondary">
@@ -41,7 +46,15 @@ export default function PlatformsPage() {
               <tbody>
                 {platformMatrix.map((row) => (
                   <tr key={row.platform}>
-                    <td>{row.platform}</td>
+                    <td>
+                      <div className={logoStyles.platformCell}>
+                        <PlatformLogoGroup
+                          ids={logosForPlatformName(row.platform)}
+                          size="small"
+                        />
+                        <span>{row.platform}</span>
+                      </div>
+                    </td>
                     <td>{row.method}</td>
                     <td>
                       <span className={styles.status} data-status={row.status}>
@@ -61,7 +74,7 @@ export default function PlatformsPage() {
         <div className={styles.deviceGrid}>
           {platformTiles.map((tile) => (
             <article key={tile.id} id={tile.id} className={styles.deviceCard}>
-              <ImagePlaceholder label={tile.title} fill />
+              <PlatformLogoPanel ids={logosForPlatformId(tile.id)} />
               <h3 className={styles.deviceTitle}>{tile.title}</h3>
               <p className={styles.deviceBody}>{tile.description}</p>
               <span className={styles.status} data-status={tile.status}>
@@ -76,13 +89,19 @@ export default function PlatformsPage() {
         <div className={shared.card}>
           <div className={styles.calloutInner}>
             <div>
-              <h2 className={styles.calloutTitle}>SteamOS integration</h2>
+              <h2 className={`${styles.calloutTitle} ${logoStyles.titleRow}`}>
+                <PlatformLogoGroup ids={logosForPlatformId("steamos")} size="small" />
+                <span>SteamOS integration</span>
+              </h2>
               <p className={styles.calloutBody}>
                 Run Kosmos on Steam Deck with embed mode for single-app shells — chat, studio,
                 or any workspace full-viewport without desktop chrome.
               </p>
             </div>
-            <ImagePlaceholder label="Steam Deck" fill className={styles.calloutMedia} />
+            <PlatformLogoPanel
+              ids={logosForPlatformId("steamos")}
+              className={styles.calloutMedia}
+            />
           </div>
         </div>
       </section>

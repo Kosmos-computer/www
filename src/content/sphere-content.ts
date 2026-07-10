@@ -21,7 +21,7 @@ export const sphereSlides = [
   {
     title: "Code workspace",
     description:
-      "OpenHands agent-canvas embedded for terminals, diffs, and repo work — not a separate product tab.",
+      "Techno Studio embedded for terminals, diffs, and repo work — not a separate product tab.",
     label: "Code",
   },
   {
@@ -33,7 +33,7 @@ export const sphereSlides = [
   {
     title: "Engine boundaries",
     description:
-      "OpenClaw orchestrates. OpenHands codes. Arco renders UI. Kosmos composes — it does not fork.",
+      "OpenClaw orchestrates. Techno Studio handles code. Arco renders UI. Kosmos composes — it does not fork.",
     label: "Engines",
   },
 ] as const;

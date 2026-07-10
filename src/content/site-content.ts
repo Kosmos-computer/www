@@ -2,7 +2,7 @@ export const siteMeta = {
   name: "Kosmos",
   tagline: "A generative AI operating system for integrated work & life.",
   description:
-    "One shell for chat, code, files, and generated apps. Plug in OpenClaw, OpenHands, and Arco — agents share focus context across every workspace.",
+    "One shell for chat, code, files, and generated apps. Plug in OpenClaw, coding runtimes, and Arco — agents share focus context across every workspace.",
 } as const;
 
 export const controlPlaneUrl =
@@ -39,7 +39,7 @@ export const navLinks = navPillLinks;
 
 export const integrations = [
   "OpenClaw Gateway",
-  "OpenHands agent-canvas",
+  "Techno Studio",
   "Arco UI",
   "Odysseus",
 ] as const;
@@ -199,7 +199,7 @@ export const features = [
   {
     title: "Techno Studio",
     description:
-      "OpenHands agent-canvas embedded for terminals, diffs, and repo work — not a separate product tab.",
+      "Techno Studio embedded for terminals, diffs, and repo work — not a separate product tab.",
     href: "/features.html#studio",
     linkLabel: "View Studio",
   },
@@ -417,7 +417,7 @@ export const principles = [
   {
     id: "II",
     title: "Engine boundaries",
-    body: "OpenClaw owns agent orchestration. OpenHands owns the coding sandbox. Arco owns streamed UI. Kosmos composes — it does not fork.",
+    body: "OpenClaw owns agent orchestration. Techno Studio owns the coding sandbox. Arco owns streamed UI. Kosmos composes — it does not fork.",
   },
   {
     id: "III",
@@ -460,17 +460,17 @@ export const faqItems = [
   {
     question: "Can agents control the UI?",
     answer:
-      "Yes. On desktop, agents can drive a visible cursor to click, type, and demonstrate apps. Multi-agent backends include Cursor SDK, OpenHands, and more.",
+      "Yes. On desktop, agents can drive a visible cursor to click, type, and demonstrate apps. Multi-agent backends include Cursor SDK, coding agents, and more.",
   },
   {
     question: "Do I need every backend running?",
     answer:
-      "MVP: OpenClaw gateway plus Arco. Add OpenHands for the Code workspace. Odysseus is optional for productivity and RAG services.",
+      "MVP: OpenClaw gateway plus Arco. Add Techno Studio for the Code workspace. Odysseus is optional for productivity and RAG services.",
   },
   {
-    question: "How is this different from agent-canvas alone?",
+    question: "How is this different from a coding agent alone?",
     answer:
-      "agent-canvas is the coding engine. Kosmos is the full OS shell — chat, desktop, apps, memory, and reference workspaces around it.",
+      "A coding agent handles the repo. Kosmos is the full OS shell — chat, desktop, apps, memory, and reference workspaces around it.",
   },
   {
     question: "What is Arco vs Kosmos?",
@@ -487,7 +487,7 @@ export const faqItems = [
 export const architectureLayers = [
   { label: "Viewers", detail: "Browser, desktop, phone, watch, Steam Deck" },
   { label: "Kosmos shell", detail: "AppShell · SurfaceManager · tokens" },
-  { label: "Engines", detail: "OpenClaw · OpenHands · Arco · Odysseus" },
+  { label: "Engines", detail: "OpenClaw · Techno Studio · Arco · Odysseus" },
   { label: "Workspaces", detail: "Chat, Code, Apps, Notes, Longformer, …" },
 ] as const;
 
@@ -681,7 +681,7 @@ export const educationRecipes = [
         title: "Build software in Studio",
         outcome: "Repo work with terminal, diffs, and live preview.",
         description:
-          "Techno Studio embeds the OpenHands agent canvas — coding stays inside the OS next to chat and generated UI, not in a separate product.",
+          "Techno Studio keeps coding inside the OS next to chat and generated UI — not in a separate product.",
         tools: ["Studio", "Chat", "Agent cursor"],
         steps: [
           "Open Techno Studio and point it at your repo or a new project scaffold.",

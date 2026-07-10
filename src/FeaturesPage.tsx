@@ -1,3 +1,5 @@
+import { PlatformLogoPanel } from "@brand/PlatformLogo";
+import { logosForPlatformId } from "@brand/platformLogos";
 import { PageShell } from "./components/PageShell";
 import styles from "./pages/ContentPages.module.css";
 import shared from "./styles/shared.module.css";
@@ -30,13 +32,21 @@ export default function FeaturesPage() {
         <section key={group.category} className={styles.block}>
           <h2 className={styles.blockTitle}>{group.category}</h2>
           <div className={styles.catalogGrid}>
-            {group.items.map((item) => (
-              <a key={item.id} id={item.id} className={styles.catalogCard} href={item.href}>
-                <ImagePlaceholder label={item.title} fill />
-                <h3 className={styles.deviceTitle}>{item.title}</h3>
-                <p className={styles.deviceBody}>{item.description}</p>
-              </a>
-            ))}
+            {group.items.map((item) => {
+              const platformLogos = logosForPlatformId(item.id);
+
+              return (
+                <a key={item.id} id={item.id} className={styles.catalogCard} href={item.href}>
+                  {platformLogos.length > 0 ? (
+                    <PlatformLogoPanel ids={platformLogos} />
+                  ) : (
+                    <ImagePlaceholder label={item.title} fill />
+                  )}
+                  <h3 className={styles.deviceTitle}>{item.title}</h3>
+                  <p className={styles.deviceBody}>{item.description}</p>
+                </a>
+              );
+            })}
           </div>
         </section>
       ))}

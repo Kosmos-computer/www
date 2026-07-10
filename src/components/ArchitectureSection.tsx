@@ -31,7 +31,7 @@ export function ArchitectureSection() {
         <div className={styles.callout}>
           <p className={styles.calloutTitle}>Kosmos composes — it does not replace</p>
           <p className={styles.calloutBody}>
-            OpenClaw gateway for agent orchestration. OpenHands agent-canvas for
+            OpenClaw gateway for agent orchestration. Techno Studio for
             code sandboxes. Arco for streamed and generated interfaces. Optional
             Odysseus services for productivity and memory — each engine keeps its
             runtime; Kosmos owns presentation and focus.

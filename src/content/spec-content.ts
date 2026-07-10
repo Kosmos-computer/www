@@ -30,7 +30,7 @@ export const nonNegotiables = [
   },
   {
     title: "Portability",
-    body: "The library is consumed by Kosmos today and should drop into openclaw-os, odyssey, or openhands later without heavy build coupling.",
+    body: "The library is consumed by Kosmos today and should drop into openclaw-os, odyssey, or other coding shells later without heavy build coupling.",
   },
   {
     title: "One source of truth",
@@ -298,7 +298,7 @@ export const roadmapPhases = [
       "Generated apps become first-class and heavy engines arrive lazily, per workspace.",
     items: [
       "app_create persistence — generated apps live on Desktop, Apps grid, phone, widgets",
-      "agent-canvas embedded as the Code workspace (lazy-loaded)",
+      "Techno Studio embedded as the Code workspace (lazy-loaded)",
       "Notes backed by plugin SQLite or the Joplin data API",
     ],
   },
@@ -417,8 +417,8 @@ export const engines = [
   },
   {
     capability: "Coding agent, terminal, git",
-    engine: "agent-canvas + OpenHands",
-    mode: "Library embed as the Code workspace",
+    engine: "Techno Studio",
+    mode: "Embedded coding workspace in Kosmos",
   },
   {
     capability: "Notes, sync, E2EE, mobile",

@@ -1,3 +1,6 @@
+import { PlatformLogo, PlatformLogoPanel } from "@brand/PlatformLogo";
+import logoStyles from "@brand/PlatformLogo.module.css";
+import { logoForActionLabel, logosForPlatformId } from "@brand/platformLogos";
 import { PageShell } from "./components/PageShell";
 import styles from "./pages/ContentPages.module.css";
 import shared from "./styles/shared.module.css";
@@ -64,16 +67,23 @@ export default function DownloadPage() {
         <div className={styles.downloadGrid}>
           {downloadOptions.map((option) => (
             <article key={option.id} id={option.id} className={styles.downloadCard}>
-              <ImagePlaceholder label={option.title} fill />
+              <PlatformLogoPanel ids={logosForPlatformId(option.id)} />
               <h2 className={styles.deviceTitle}>{option.title}</h2>
               <p className={styles.deviceBody}>{option.description}</p>
               <ul className={styles.actionList}>
-                {option.actions.map((action) => (
-                  <li key={action.label}>
-                    <span className={styles.actionLabel}>{action.label}</span>
-                    <span className={styles.actionHint}>{action.hint}</span>
-                  </li>
-                ))}
+                {option.actions.map((action) => {
+                  const logoId = logoForActionLabel(action.label);
+
+                  return (
+                    <li key={action.label}>
+                      <span className={logoStyles.inlineLabel}>
+                        {logoId ? <PlatformLogo id={logoId} /> : null}
+                        <span className={styles.actionLabel}>{action.label}</span>
+                      </span>
+                      <span className={styles.actionHint}>{action.hint}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </article>
           ))}

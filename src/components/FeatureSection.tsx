@@ -1,3 +1,5 @@
+import { PlatformLogoPanel } from "@brand/PlatformLogo";
+import { heroPlatformLogos } from "@brand/platformLogos";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { features } from "../content/site-content";
 import shared from "../styles/shared.module.css";
@@ -34,7 +36,11 @@ export function FeatureSection() {
                 </a>
               </div>
               <div className={styles.media}>
-                <ImagePlaceholder label={feature.title} />
+                {feature.title === "Runs everywhere" ? (
+                  <PlatformLogoPanel ids={heroPlatformLogos} />
+                ) : (
+                  <ImagePlaceholder label={feature.title} />
+                )}
               </div>
             </article>
           ))}

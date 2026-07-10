@@ -1,0 +1,104 @@
+.logo {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+.group.small {
+  gap: 0.5rem;
+}
+
+.group.small .logo {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.group.medium .logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.group.large .logo {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 8rem;
+  border-radius: var(--lf-radius-lg);
+  background: var(--lf-surface-muted);
+  color: var(--lf-text);
+}
+
+.panel .group {
+  gap: 1.25rem;
+}
+
+.panel .logo {
+  opacity: 0.88;
+}
+
+.strip {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--lf-radius-lg);
+  background: var(--lf-surface);
+  box-shadow: var(--lf-shadow);
+}
+
+.strip .group {
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.inlineLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.platformCell {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.platformCell .group {
+  justify-content: flex-start;
+  margin-top: 0.1rem;
+}
+
+.platformCell .logo {
+  width: 1.125rem;
+  height: 1.125rem;
+  opacity: 0.8;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.titleRow .group {
+  justify-content: flex-start;
+}
+
+.titleRow .logo {
+  width: 1.25rem;
+  height: 1.25rem;
+}
