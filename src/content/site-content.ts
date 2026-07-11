@@ -9,7 +9,7 @@ export const controlPlaneUrl =
   import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://kosmos-control-plane.fly.dev";
 
 /** @deprecated Prefer opening the waitlist modal via useWaitlist() */
-export const signUpUrl = controlPlaneUrl;
+export const signUpUrl = `${controlPlaneUrl}/signup`;
 /** @deprecated Prefer opening the waitlist modal via useWaitlist() */
 export const signInUrl = `${controlPlaneUrl}/signin`;
 
