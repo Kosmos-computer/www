@@ -6,15 +6,12 @@ import styles from "./pages/ContentPages.module.css";
 import shared from "./styles/shared.module.css";
 import { ImagePlaceholder } from "./components/ImagePlaceholder";
 import { ChunkyButton } from "./components/ChunkyButton";
-import { downloadOptions } from "./content/site-content";
-import { useWaitlist } from "./components/WaitlistContext";
+import { downloadOptions, signUpUrl } from "./content/site-content";
 
 function DownloadActions() {
-  const { openWaitlist } = useWaitlist();
-
   return (
     <div className={styles.heroActions}>
-      <ChunkyButton onClick={openWaitlist}>Get started</ChunkyButton>
+      <ChunkyButton href={signUpUrl}>Get started</ChunkyButton>
       <ChunkyButton href="/platforms.html" variant="secondary">
         Platform details
       </ChunkyButton>
@@ -23,8 +20,6 @@ function DownloadActions() {
 }
 
 function HostedCallout() {
-  const { openWaitlist } = useWaitlist();
-
   return (
     <section className={`${styles.block} ${styles.callout}`}>
       <div className={shared.card}>
@@ -35,8 +30,8 @@ function HostedCallout() {
               Getting started includes $5 of inference credits. Monthly hosted plans provision a
               private instance with usage &amp; credits built in.
             </p>
-            <ChunkyButton onClick={openWaitlist} className={styles.calloutCta}>
-              Notify me at launch
+            <ChunkyButton href={signUpUrl} className={styles.calloutCta}>
+              Get started
             </ChunkyButton>
           </div>
           <ImagePlaceholder label="Hosted" fill className={styles.calloutMedia} />

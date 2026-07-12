@@ -26,17 +26,8 @@
   color: var(--lf-text);
 }
 
-.eyebrow {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--lf-text-muted);
-}
-
 .title {
-  margin: 0.5rem 0 0;
+  margin: 0;
   font-size: 1.375rem;
   font-weight: 500;
   letter-spacing: -0.02em;

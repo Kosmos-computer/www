@@ -54,7 +54,6 @@ export function PasscodeGate({ children }: PasscodeGateProps) {
     <div className={styles.screen}>
       <div className={styles.card}>
         <ArcoLogo className={styles.logo} title="Kosmos" />
-        <p className={styles.eyebrow}>Private preview</p>
         <h1 className={styles.title}>Enter passcode</h1>
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="site-passcode" className={styles.label}>

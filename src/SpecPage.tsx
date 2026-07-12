@@ -1,4 +1,4 @@
-import { arcoDocsUrl, demoUrl } from "./content/site-content";
+import { arcoDocsUrl, demoUrl, signUpUrl } from "./content/site-content";
 import { PasscodeGate } from "./components/PasscodeGate";
 import { WaitlistProvider } from "./components/WaitlistContext";
 import { WaitlistModal } from "./components/WaitlistModal";
@@ -34,7 +34,7 @@ export default function SpecPage() {
               body="The full spec lives in docs/open-standards-map.md and the Arco docs site. Start with the registry prototype — everything else on the roadmap builds on it."
               journey={false}
               actions={[
-                { label: "Get started", action: "waitlist", variant: "primary" },
+                { label: "Get started", href: signUpUrl, variant: "primary" },
                 { label: "Back to Kosmos", href: "/", variant: "secondary" },
                 { label: "Arco docs", href: arcoDocsUrl, variant: "secondary" },
                 { label: "Local demo", href: demoUrl, variant: "secondary" },

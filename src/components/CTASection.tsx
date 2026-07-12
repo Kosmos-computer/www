@@ -1,5 +1,5 @@
 import { ArcoLogo } from "@brand/ArcoLogo";
-import { arcoDocsUrl, siteMeta } from "../content/site-content";
+import { arcoDocsUrl, signUpUrl, siteMeta } from "../content/site-content";
 import { ChunkyButton } from "./ChunkyButton";
 import { JourneyConstellation } from "./JourneyConstellation";
 import { useWaitlist } from "./WaitlistContext";
@@ -16,6 +16,7 @@ type CTAAction =
   | {
       label: string;
       href?: undefined;
+      /** Kept for re-enabling the waitlist modal later. */
       action: "waitlist";
       variant?: "primary" | "secondary";
       external?: never;
@@ -29,7 +30,7 @@ type CTASectionProps = {
 };
 
 const defaultActions: readonly CTAAction[] = [
-  { label: "Get started", action: "waitlist", variant: "primary" },
+  { label: "Get started", href: signUpUrl, variant: "primary" },
   { label: "Read Arco docs", href: arcoDocsUrl, variant: "secondary" },
 ];
 
@@ -104,8 +105,6 @@ export function CTASection({
 }
 
 export function SiteFooter() {
-  const { openWaitlist } = useWaitlist();
-
   return (
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
@@ -118,9 +117,7 @@ export function SiteFooter() {
           <a href="/features.html">Features</a>
           <a href="/education.html">Education</a>
           <a href="/download.html">Download</a>
-          <button type="button" className={styles.footerLinkButton} onClick={openWaitlist}>
-            Get started
-          </button>
+          <a href={signUpUrl}>Get started</a>
           <a href={arcoDocsUrl}>Arco docs</a>
           <a href="/spec.html">Arco spec</a>
         </nav>

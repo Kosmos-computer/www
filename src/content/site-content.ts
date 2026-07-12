@@ -8,10 +8,8 @@ export const siteMeta = {
 export const controlPlaneUrl =
   import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://app.kosmos.computer";
 
-/** @deprecated Prefer opening the waitlist modal via useWaitlist() */
 export const signUpUrl = `${controlPlaneUrl}/signup`;
-/** @deprecated Prefer opening the waitlist modal via useWaitlist() */
-export const signInUrl = `${controlPlaneUrl}/signin`;
+export const signInUrl = `${controlPlaneUrl}/connect`;
 
 export const demoUrl = import.meta.env.VITE_DEMO_URL ?? "http://localhost:4610";
 export const arcoDocsUrl = "https://docs.kosmos.computer";
