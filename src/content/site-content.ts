@@ -6,7 +6,7 @@ export const siteMeta = {
 } as const;
 
 export const controlPlaneUrl =
-  import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://kosmos-control-plane.fly.dev";
+  import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://app.kosmos.computer";
 
 /** @deprecated Prefer opening the waitlist modal via useWaitlist() */
 export const signUpUrl = `${controlPlaneUrl}/signup`;
@@ -14,10 +14,10 @@ export const signUpUrl = `${controlPlaneUrl}/signup`;
 export const signInUrl = `${controlPlaneUrl}/signin`;
 
 export const demoUrl = import.meta.env.VITE_DEMO_URL ?? "http://localhost:4610";
-export const arcoDocsUrl = "https://kosmos-docs.vercel.app";
+export const arcoDocsUrl = "https://docs.kosmos.computer";
 
 /** Opens the beta / waitlist modal when visited (e.g. from kosmos-docs footer links). */
-export const betaModalUrl = "https://kosmos-www.vercel.app/#beta";
+export const betaModalUrl = "https://www.kosmos.computer/#beta";
 
 /** Formspree endpoint for the waitlist contact form. Set VITE_FORMSPREE_ID in env. */
 export const waitlistFormUrl = import.meta.env.VITE_FORMSPREE_ID
