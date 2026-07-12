@@ -1,3 +1,4 @@
+import { PasscodeGate } from "./components/PasscodeGate";
 import { WaitlistProvider } from "./components/WaitlistContext";
 import { WaitlistModal } from "./components/WaitlistModal";
 import { SiteHeader } from "./components/SiteHeader";
@@ -15,25 +16,27 @@ import { CTASection, SiteFooter } from "./components/CTASection";
 
 export default function App() {
   return (
-    <WaitlistProvider>
-      <div>
-        <SiteHeader />
-        <main>
-          <HeroSection />
-          <RunsEverywhereSection />
-          <PlatformSphere />
-          <IntegrationsMarquee />
-          <FeatureSection />
-          <VoiceLongformerSection />
-          <AgentExperienceSection />
-          <ArchitectureSection />
-          <PrinciplesSection />
-          <FAQSection />
-          <CTASection />
-        </main>
-        <SiteFooter />
-        <WaitlistModal />
-      </div>
-    </WaitlistProvider>
+    <PasscodeGate>
+      <WaitlistProvider>
+        <div>
+          <SiteHeader />
+          <main>
+            <HeroSection />
+            <RunsEverywhereSection />
+            <PlatformSphere />
+            <IntegrationsMarquee />
+            <FeatureSection />
+            <VoiceLongformerSection />
+            <AgentExperienceSection />
+            <ArchitectureSection />
+            <PrinciplesSection />
+            <FAQSection />
+            <CTASection />
+          </main>
+          <SiteFooter />
+          <WaitlistModal />
+        </div>
+      </WaitlistProvider>
+    </PasscodeGate>
   );
 }

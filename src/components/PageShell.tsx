@@ -1,4 +1,5 @@
 import { useEffect, type ReactNode } from "react";
+import { PasscodeGate } from "./PasscodeGate";
 import { WaitlistProvider } from "./WaitlistContext";
 import { WaitlistModal } from "./WaitlistModal";
 import { SiteHeader } from "./SiteHeader";
@@ -19,13 +20,15 @@ export function PageShell({ title, description, children }: PageShellProps) {
   }, [title, description]);
 
   return (
-    <WaitlistProvider>
-      <div>
-        <SiteHeader homeHref="/" />
-        <main className={styles.main}>{children}</main>
-        <SiteFooter />
-        <WaitlistModal />
-      </div>
-    </WaitlistProvider>
+    <PasscodeGate>
+      <WaitlistProvider>
+        <div>
+          <SiteHeader homeHref="/" />
+          <main className={styles.main}>{children}</main>
+          <SiteFooter />
+          <WaitlistModal />
+        </div>
+      </WaitlistProvider>
+    </PasscodeGate>
   );
 }

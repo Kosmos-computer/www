@@ -1,0 +1,86 @@
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--lf-page-gutter);
+  background: var(--lf-bg);
+}
+
+.card {
+  width: 100%;
+  max-width: 22rem;
+  padding: 2rem 1.75rem 1.75rem;
+  border-radius: var(--lf-radius-lg);
+  background: var(--lf-surface);
+  box-shadow: var(--lf-shadow-lg);
+  border: 1px solid var(--lf-border);
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  height: 1.75rem;
+  width: auto;
+  margin: 0 auto 1.5rem;
+  color: var(--lf-text);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lf-text-muted);
+}
+
+.title {
+  margin: 0.5rem 0 0;
+  font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--lf-text);
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--lf-border);
+  border-radius: var(--lf-radius);
+  background: #fff;
+  color: var(--lf-text);
+  font: inherit;
+  font-size: 0.9375rem;
+}
+
+.input:focus {
+  outline: 2px solid rgba(64, 64, 64, 0.25);
+  outline-offset: 1px;
+  border-color: var(--lf-accent);
+}
+
+.error {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #7f1d1d;
+}
+
+.submit {
+  margin-top: 0.75rem;
+  width: 100%;
+}
