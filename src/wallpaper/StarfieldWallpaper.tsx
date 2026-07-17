@@ -38,7 +38,13 @@ function readDesktopBg(theme: Theme): string {
   return theme === "light" ? "#e8ecf4" : "#0b0d12";
 }
 
-export function StarfieldWallpaper({ theme }: { theme: Theme }) {
+type StarfieldWallpaperProps = {
+  theme: Theme;
+  /** 0 = snap to cursor; lower values lag further behind (e.g. 0.045). */
+  mouseLag?: number;
+};
+
+export function StarfieldWallpaper({ theme, mouseLag = 0 }: StarfieldWallpaperProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -57,9 +63,12 @@ export function StarfieldWallpaper({ theme }: { theme: Theme }) {
     let canvasHeight = 0;
     let centerX = 0;
     let centerY = 0;
+    let targetMouseX = 0;
+    let targetMouseY = 0;
     let mouseX = 0;
     let mouseY = 0;
     const speed = reduced ? DEFAULT_SPEED * 0.35 : DEFAULT_SPEED;
+    const lag = reduced ? 1 : Math.min(1, Math.max(0, mouseLag));
     let frame = 0;
     let running = true;
     let warmed = false;
@@ -73,6 +82,8 @@ export function StarfieldWallpaper({ theme }: { theme: Theme }) {
       canvas.height = canvasHeight;
       centerX = canvasWidth * 0.5;
       centerY = canvasHeight * 0.5;
+      targetMouseX = centerX;
+      targetMouseY = centerY;
       mouseX = centerX;
       mouseY = centerY;
 
@@ -84,8 +95,12 @@ export function StarfieldWallpaper({ theme }: { theme: Theme }) {
 
     const setMouseFromEvent = (clientX: number, clientY: number) => {
       const rect = container.getBoundingClientRect();
-      mouseX = clientX - rect.left;
-      mouseY = clientY - rect.top;
+      targetMouseX = clientX - rect.left;
+      targetMouseY = clientY - rect.top;
+      if (lag <= 0 || lag >= 1) {
+        mouseX = targetMouseX;
+        mouseY = targetMouseY;
+      }
     };
 
     const onMouseMove = (e: MouseEvent) => setMouseFromEvent(e.clientX, e.clientY);
@@ -94,6 +109,11 @@ export function StarfieldWallpaper({ theme }: { theme: Theme }) {
       if (!running) return;
       frame = requestAnimationFrame(loop);
       if (canvasWidth <= 0 || canvasHeight <= 0) return;
+
+      if (lag > 0 && lag < 1) {
+        mouseX += (targetMouseX - mouseX) * lag;
+        mouseY += (targetMouseY - mouseY) * lag;
+      }
 
       context.save();
       context.fillStyle = readDesktopBg(theme);
@@ -176,7 +196,7 @@ export function StarfieldWallpaper({ theme }: { theme: Theme }) {
       observer.disconnect();
       window.removeEventListener("mousemove", onMouseMove);
     };
-  }, [theme]);
+  }, [theme, mouseLag]);
 
   return (
     <div ref={containerRef} className="arco-wallpaper__effect arco-wallpaper__effect--starfield" aria-hidden>

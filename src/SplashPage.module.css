@@ -1,0 +1,147 @@
+.root {
+  position: relative;
+  min-height: 200vh;
+  background: #0b0d12;
+  color: var(--lf-on-dark);
+  --arco-bg-desktop: #0b0d12;
+  overscroll-behavior-y: none;
+}
+
+.wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.cloudLink {
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.7rem 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(247, 245, 240, 0.22);
+  background: rgba(11, 13, 18, 0.55);
+  color: #f7f5f0;
+  font-family: var(--lf-font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cloudLink:hover {
+  background: rgba(247, 245, 240, 0.08);
+  border-color: rgba(247, 245, 240, 0.4);
+  transform: translateY(-1px);
+}
+
+.betaTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(247, 245, 240, 0.92);
+  color: #12141a;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+  padding: var(--lf-page-gutter);
+  padding-bottom: clamp(8rem, 28vh, 14rem);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+  max-width: 40rem;
+}
+
+.wordmark {
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(4.5rem, 18vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: #f7f5f0;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.12);
+}
+
+.subline {
+  margin: 0;
+  max-width: 34rem;
+  font-family: var(--lf-font-sans);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: rgba(247, 245, 240, 0.72);
+}
+
+.shotDock {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 2;
+  width: min(92vw, 58rem);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.shotPanel {
+  will-change: transform;
+}
+
+.shotFrame {
+  overflow: hidden;
+  border-radius: 1rem 1rem 0 0;
+  border: 1px solid rgba(247, 245, 240, 0.14);
+  border-bottom: none;
+  background: rgba(8, 10, 14, 0.85);
+  box-shadow:
+    0 -24px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+}
+
+.shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+}
+

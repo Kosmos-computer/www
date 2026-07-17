@@ -5,6 +5,10 @@ export const siteMeta = {
     "One shell for chat, code, files, and generated apps. Plug in OpenClaw, coding runtimes, and Arco — agents share focus context across every workspace.",
 } as const;
 
+/** Temporary splash frontpage copy — more concrete than the marketing tagline. */
+export const splashTagline =
+  "An open generative AI operating system — one shell for chat, code, files, and generated apps, with agents that share context across every workspace.";
+
 export const controlPlaneUrl =
   import.meta.env.VITE_CONTROL_PLANE_URL ?? "https://app.kosmos.computer";
 
@@ -13,6 +17,8 @@ export const signInUrl = `${controlPlaneUrl}/connect`;
 
 export const demoUrl = import.meta.env.VITE_DEMO_URL ?? "http://localhost:4610";
 export const arcoDocsUrl = "https://docs.kosmos.computer";
+
+export const githubRepoUrl = "https://github.com/Kosmos-computer/Kosmos";
 
 /** Opens the beta / waitlist modal when visited (e.g. from kosmos-docs footer links). */
 export const betaModalUrl = "https://www.kosmos.computer/#beta";

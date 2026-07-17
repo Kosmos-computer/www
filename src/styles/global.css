@@ -12,7 +12,7 @@
   --lf-shadow: 0 0 7.5rem rgba(0, 0, 0, 0.07);
   --lf-shadow-lg: 0 24px 80px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
   --lf-font-sans: "Instrument Sans", system-ui, sans-serif;
-  --lf-font-serif: var(--lf-font-sans);
+  --lf-font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   --lf-font-mono: "JetBrains Mono", ui-monospace, monospace;
   --lf-radius: 0.625rem;
   --lf-radius-lg: 1rem;
