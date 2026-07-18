@@ -4,7 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { StarfieldWallpaper } from "@arco/wallpaper/StarfieldWallpaper";
 import "@arco/wallpaper/wallpaper.css";
 import { GitHubStarButton } from "./components/GitHubStarButton";
-import { signUpUrl, siteMeta, splashTagline } from "./content/site-content";
+import { WaitlistModal } from "./components/WaitlistModal";
+import { useWaitlist, WaitlistProvider } from "./components/WaitlistContext";
+import { siteMeta, splashTagline } from "./content/site-content";
 import { stubImages } from "./content/stub-images";
 import styles from "./SplashPage.module.css";
 
@@ -13,7 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 /** Apps launcher grid — shows the OS surface without repeating the chat shot. */
 const SPLASH_SHOT = stubImages[12];
 
-export default function SplashPage() {
+function SplashContent() {
+  const { openWaitlist } = useWaitlist();
   const trackRef = useRef<HTMLDivElement>(null);
   const shotRef = useRef<HTMLDivElement>(null);
 
@@ -69,10 +72,10 @@ export default function SplashPage() {
         <div className="arco-wallpaper__veil" />
       </div>
 
-      <a className={styles.cloudLink} href={signUpUrl}>
+      <button type="button" className={styles.cloudLink} onClick={openWaitlist}>
         Access cloud
         <span className={styles.betaTag}>Beta</span>
-      </a>
+      </button>
 
       <main className={styles.hero}>
         <div className={styles.content}>
@@ -97,6 +100,16 @@ export default function SplashPage() {
           </div>
         </div>
       </div>
+
+      <WaitlistModal />
     </div>
+  );
+}
+
+export default function SplashPage() {
+  return (
+    <WaitlistProvider>
+      <SplashContent />
+    </WaitlistProvider>
   );
 }

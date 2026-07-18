@@ -23,11 +23,6 @@ export const githubRepoUrl = "https://github.com/Kosmos-computer/Kosmos";
 /** Opens the beta / waitlist modal when visited (e.g. from kosmos-docs footer links). */
 export const betaModalUrl = "https://www.kosmos.computer/#beta";
 
-/** Formspree endpoint for the waitlist contact form. Set VITE_FORMSPREE_ID in env. */
-export const waitlistFormUrl = import.meta.env.VITE_FORMSPREE_ID
-  ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
-  : "";
-
 export const navPillLinks = [
   { label: "Apps", href: "/apps.html" },
   { label: "Platforms", href: "/platforms.html" },
