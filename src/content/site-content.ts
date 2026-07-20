@@ -376,9 +376,9 @@ export const downloadOptions = [
     title: "Desktop",
     description: "Native builds for macOS, Windows, and Linux.",
     actions: [
-      { label: "macOS", hint: "Coming at launch" },
-      { label: "Windows", hint: "Coming at launch" },
-      { label: "Linux", hint: "Coming at launch" },
+      { label: "macOS", hint: "Apple Silicon DMG", href: "mac" as const },
+      { label: "Windows", hint: "Coming at launch", href: "windows" as const },
+      { label: "Linux", hint: "Coming at launch", href: "linux" as const },
     ],
   },
   {

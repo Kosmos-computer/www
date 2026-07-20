@@ -225,6 +225,18 @@
   font-weight: 500;
 }
 
+.actionLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.actionLink:hover {
+  color: var(--lf-text);
+}
+
 .actionHint {
   font-size: 0.75rem;
   color: var(--lf-text-muted);
